@@ -1,66 +1,34 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Navbar from '../components/Navbar';
+import Hero from '../components/Hero';
+import ProductGrid from '../components/ProductGrid';
+import styles from './page.js'; // Wait, I'm using page.module.css
+
+// Let's fix the import if I made a mistake
+import pageStyles from './page.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className={pageStyles.main}>
+      <Navbar />
+      <Hero />
+      
+      <section className={pageStyles.productSection}>
+        <div className={pageStyles.container}>
+          <div className={pageStyles.sectionHeader}>
+            <h4 className={pageStyles.sectionSubtitle}>EKSKLUSIF</h4>
+            <h2 className={pageStyles.sectionTitle}>Koleksi Pilihan</h2>
+            <p className={pageStyles.sectionDesc}>
+              Kurasi desain terbaik untuk menonjolkan estetika hunian mewah Anda.
+            </p>
+          </div>
+          
+          <ProductGrid />
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      <footer className={pageStyles.footer}>
+        <p>&copy; 2024 Toko Kunci Berkah Lestari. Seluruh Hak Cipta Dilindungi.</p>
+      </footer>
+    </main>
   );
 }
