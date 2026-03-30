@@ -7,7 +7,7 @@ import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const pathname = usePathname();
 
   useEffect(() => {
@@ -15,10 +15,8 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 20);
     };
     
-    // Initial theme setup (check localStorage or system preference)
     const savedTheme = localStorage.getItem('theme');
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    const initialTheme = savedTheme || systemTheme;
+    const initialTheme = savedTheme || 'light';
     
     setTheme(initialTheme);
     document.documentElement.setAttribute('data-theme', initialTheme);
@@ -35,32 +33,32 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`${styles.navbar} ${isScrolled || pathname !== '/' ? styles.scrolled : ''} glass`}>
+    <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${pathname === '/' ? styles.home : ''}`}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link href="/">
-            <span className={styles.brand}>BERKAH</span>
-            <span className={styles.subBrand}>LESTARI</span>
+            <span className={styles.brand}>BERKAH LESTARI</span>
+            <span className={styles.tagline}>Maison de Serrurerie</span>
           </Link>
         </div>
         
         <div className={styles.links}>
           <Link href="/products" className={`${styles.link} ${pathname === '/products' ? styles.active : ''}`}>
-            Produk
+            Koleksi
           </Link>
           <Link href="/exclusive" className={`${styles.link} ${pathname === '/exclusive' ? styles.active : ''}`}>
-            Koleksi Eksklusif
+            Eksklusif
           </Link>
           <Link href="/about" className={`${styles.link} ${pathname === '/about' ? styles.active : ''}`}>
-            Tentang Kami
+            L'Atelier
           </Link>
         </div>
 
         <div className={styles.actions}>
-          <button className={styles.cartBtn}>
-            🛒 <span className={styles.cartCount}>0</span>
+          <button className={styles.actionBtn}>
+            <span className={styles.icon}>🔍</span>
           </button>
-          <button className={styles.themeToggle} onClick={toggleTheme} title="Ganti Mode">
+          <button className={styles.actionBtn} onClick={toggleTheme} title="Toggle Mode">
             {theme === 'dark' ? '☀️' : '🌙'}
           </button>
         </div>

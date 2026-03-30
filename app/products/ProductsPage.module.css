@@ -1,88 +1,93 @@
 .main {
   min-height: 100vh;
+  background: var(--background);
 }
 
 .hero {
-  padding: 160px 5% 100px;
-  background: radial-gradient(circle at 70% 30%, #151515 0%, #050505 100%);
+  padding: 180px 5% 100px;
+  background: var(--muted);
   text-align: center;
   border-bottom: 1px solid var(--border-color);
 }
 
 .subtitle {
-  font-family: var(--font-heading);
-  letter-spacing: 0.3em;
-  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.4em;
+  font-size: 0.7rem;
   font-weight: 700;
   color: var(--primary-color);
-  margin-bottom: 1rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
 }
 
 .title {
-  font-size: clamp(2.5rem, 8vw, 4rem);
-  font-weight: 800;
-  margin-bottom: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: var(--foreground);
 }
 
 .desc {
   max-width: 600px;
   margin: 0 auto;
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.6;
+  color: var(--foreground);
+  opacity: 0.6;
+  line-height: 1.8;
 }
 
 .catalogSection {
-  padding: 60px 0 120px;
+  padding: 80px 0 120px;
 }
 
 .container {
-  max-width: 1400px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 4rem;
 }
 
 .filterBar {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  padding: 1.5rem 0;
-  margin-bottom: 4rem;
+  gap: 3rem;
+  padding: 2.5rem 0;
+  margin-bottom: 6rem;
   border-bottom: 1px solid var(--border-color);
 }
 
 .filterLabel {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--foreground);
+  opacity: 0.3;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2rem;
 }
 
 .filterList {
   display: flex;
-  gap: 1.5rem;
+  gap: 2.5rem;
   flex: 1;
 }
 
 .filterItem {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.5);
-  font-family: var(--font-heading);
+  color: var(--foreground);
+  opacity: 0.5;
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   position: relative;
 }
 
-.filterItem:hover {
-  color: var(--foreground);
-}
-
-.filterItem.active {
-  color: var(--primary-color);
+.filterItem:hover, .filterItem.active {
+  opacity: 1;
 }
 
 .filterItem.active::after {
@@ -91,25 +96,25 @@
   bottom: -4px;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 1px;
   background: var(--primary-color);
 }
 
 .count {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  opacity: 0.3;
   font-style: italic;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
   .filterBar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
-  }
-  
-  .filterList {
-    flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 }

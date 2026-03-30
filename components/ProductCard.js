@@ -1,25 +1,28 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProductCard.module.css';
 
-export default function ProductCard({ id, title, price, category, imageUrl }) {
+export default function ProductCard({ product }) {
   return (
-    <Link href={`/products/${id}`} className={`${styles.card} glass premium-shadow animate-fade-up`}>
-      <div className={styles.imageWrapper}>
-        <Image 
-          src={imageUrl} 
-          alt={title} 
-          fill 
-          style={{ objectFit: 'cover' }}
+    <div className={styles.card}>
+      <Link href={`/products/${product.id}`} className={styles.imageWrapper}>
+        <div className={styles.badge}>{product.category}</div>
+        <img 
+          src={product.image} 
+          alt={product.name} 
           className={styles.image}
         />
-        <div className={styles.category}>{category}</div>
+        <div className={styles.overlay}>
+          <span className={styles.viewBtn}>Lihat Detail</span>
+        </div>
+      </Link>
+      
+      <div className={styles.info}>
+        <h3 className={styles.name}>
+          <Link href={`/products/${product.id}`}>{product.name}</Link>
+        </h3>
+        <p className={styles.price}>{product.price}</p>
+        <div className={styles.line}></div>
       </div>
-      <div className={styles.details}>
-        <h3 className={styles.title}>{title}</h3>
-        <p className={styles.price}>{price}</p>
-        <button className={styles.addBtn}>LIHAT DETAIL</button>
-      </div>
-    </Link>
+    </div>
   );
 }
