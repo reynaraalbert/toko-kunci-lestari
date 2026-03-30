@@ -4,20 +4,30 @@ import styles from './Hero.module.css';
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.background}>
+      <div className={styles.videoContainer}>
+        {/* Placeholder for real video file */}
+        {/* If the user has a video, they can put it in public/profile.mp4 */}
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          className={styles.video}
+          poster="/hero-video-fallback.png"
+        >
+          <source src="/profile.mp4" type="video/mp4" />
+          {/* Fallback image is always visible if no video is found */}
+        </video>
         <div className={styles.overlay}></div>
       </div>
       
       <div className={styles.content}>
-        <h4 className={styles.pretitle}>SENI KEAMANAN HUNIAN</h4>
-        <h1 className={styles.title}>Koleksi <br /> Berkah Lestari</h1>
-        <p className={styles.desc}>
-          Estetika abadi untuk hunian yang luar biasa. Temukan perpaduan sempurna antara material premium dan keamanan tingkat tinggi bagi keluarga Anda.
-        </p>
+        <h4 className={styles.pretitle}>PROFILE COMPANY</h4>
+        <h1 className={styles.title}>KOLEKSI LENGKAP <br /> — ANDA</h1>
         
         <div className={styles.actions}>
           <Link href="/products" className={styles.mainBtn}>
-            Katalog Produk
+            Jelajahi Katalog
           </Link>
           <Link href="/about" className={styles.secondaryBtn}>
             Tentang Kami
