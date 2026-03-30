@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation';
 import { PRODUCTS } from '../../../data/products';
 import styles from './ProductDetail.module.css';
 
-export default function ProductDetailPage({ params }) {
-  const { id } = params;
+export default async function ProductDetailPage({ params }) {
+  const { id } = await params;
   const product = PRODUCTS.find((p) => p.id === id);
 
   if (!product) {
