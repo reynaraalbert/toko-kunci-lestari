@@ -1,31 +1,32 @@
 .section {
-  padding: 120px 0;
+  padding: clamp(80px, 15vh, 160px) 0;
   background: var(--background);
 }
 
 .titleWrapper {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: clamp(60px, 10vh, 120px);
+  padding: 0 var(--gutter);
 }
 
 .subtitle {
   font-size: 0.75rem;
   letter-spacing: 0.4em;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--primary-color);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 400;
-  line-height: 1.2;
+  /* Using h2 clamp from globals */
+  color: var(--foreground);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 4rem 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(280px, 30vw, 400px), 1fr));
+  gap: clamp(3rem, 5vw, 6rem) clamp(1.5rem, 3vw, 3rem);
   margin-top: 60px;
 }
 
@@ -38,10 +39,12 @@
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
   }
-  
-  .sectionTitle {
-    font-size: 2rem;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    gap: 3.5rem;
   }
 }

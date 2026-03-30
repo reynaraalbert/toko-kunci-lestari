@@ -11,10 +11,11 @@
   --font-serif: var(--font-serif), serif;
   --font-sans: var(--font-sans), sans-serif;
   
-  --transition-fast: 0.2s ease;
-  --transition-slow: 0.5s ease;
+  --transition-fast: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  --transition-slow: 0.8s cubic-bezier(0.19, 1, 0.22, 1);
   
   --max-width: 1440px;
+  --gutter: clamp(1.5rem, 5vw, 4rem);
 }
 
 [data-theme='dark'] {
@@ -32,6 +33,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -46,6 +51,11 @@ h1, h2, h3, h4, .serif {
   font-weight: 400;
   letter-spacing: -0.01em;
 }
+
+/* Fluid Typography */
+h1 { font-size: clamp(2.5rem, 8vw, 6rem); }
+h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
 
 a {
   color: inherit;
@@ -62,13 +72,19 @@ button {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 var(--gutter);
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1.5rem;
-  }
+/* Scroll Reveal Utility */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Luxury Utilities */
@@ -86,17 +102,19 @@ button {
 }
 
 .luxury-button {
-  padding: 1rem 2.5rem;
-  font-size: 0.8rem;
+  padding: 1.2rem 3rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 600;
+  letter-spacing: 0.3em;
+  font-weight: 700;
   background: var(--foreground);
   color: var(--background);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  display: inline-block;
 }
 
 .luxury-button:hover {
   opacity: 0.8;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
