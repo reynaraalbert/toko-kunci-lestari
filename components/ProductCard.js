@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './ProductCard.module.css';
 
-export default function ProductCard({ title, price, category, imageUrl }) {
+export default function ProductCard({ id, title, price, category, imageUrl }) {
   return (
-    <div className={`${styles.card} glass premium-shadow animate-fade-up`}>
+    <Link href={`/products/${id}`} className={`${styles.card} glass premium-shadow animate-fade-up`}>
       <div className={styles.imageWrapper}>
         <Image 
           src={imageUrl} 
@@ -19,6 +20,6 @@ export default function ProductCard({ title, price, category, imageUrl }) {
         <p className={styles.price}>{price}</p>
         <button className={styles.addBtn}>LIHAT DETAIL</button>
       </div>
-    </div>
+    </Link>
   );
 }

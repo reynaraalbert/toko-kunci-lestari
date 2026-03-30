@@ -70,8 +70,13 @@
   transition: width var(--transition-fast);
 }
 
-.link:hover::after {
+.link:hover::after,
+.link.active::after {
   width: 100%;
+}
+
+.link.active {
+  color: var(--primary-color);
 }
 
 .actions {

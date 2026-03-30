@@ -1,4 +1,3 @@
-import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import ProductGrid from '../components/ProductGrid';
 import styles from './page.js'; // Wait, I'm using page.module.css
@@ -9,7 +8,6 @@ import pageStyles from './page.module.css';
 export default function Home() {
   return (
     <main className={pageStyles.main}>
-      <Navbar />
       <Hero />
       
       <section className={pageStyles.productSection}>

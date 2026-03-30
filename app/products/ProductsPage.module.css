@@ -1,0 +1,115 @@
+.main {
+  min-height: 100vh;
+}
+
+.hero {
+  padding: 160px 5% 100px;
+  background: radial-gradient(circle at 70% 30%, #151515 0%, #050505 100%);
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.desc {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+}
+
+.catalogSection {
+  padding: 60px 0 120px;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filterLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.filterList {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.filterItem {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.filterItem:hover {
+  color: var(--foreground);
+}
+
+.filterItem.active {
+  color: var(--primary-color);
+}
+
+.filterItem.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.count {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .filterBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .filterList {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
