@@ -38,19 +38,19 @@ export default function Navbar() {
         <div className={styles.logo}>
           <Link href="/">
             <span className={styles.brand}>BERKAH LESTARI</span>
-            <span className={styles.tagline}>Maison de Serrurerie</span>
+            <span className={styles.tagline}>Spesialis Kunci Mewah</span>
           </Link>
         </div>
         
         <div className={styles.links}>
           <Link href="/products" className={`${styles.link} ${pathname === '/products' ? styles.active : ''}`}>
-            Koleksi
+            Koleksi Produk
           </Link>
           <Link href="/exclusive" className={`${styles.link} ${pathname === '/exclusive' ? styles.active : ''}`}>
-            Eksklusif
+            Edisi Terbatas
           </Link>
           <Link href="/about" className={`${styles.link} ${pathname === '/about' ? styles.active : ''}`}>
-            L'Atelier
+            Tentang Kami
           </Link>
         </div>
 
@@ -58,7 +58,7 @@ export default function Navbar() {
           <button className={styles.actionBtn}>
             <span className={styles.icon}>🔍</span>
           </button>
-          <button className={styles.actionBtn} onClick={toggleTheme} title="Toggle Mode">
+          <button className={styles.actionBtn} onClick={toggleTheme} title="Ganti Mode">
             {theme === 'dark' ? '☀️' : '🌙'}
           </button>
         </div>
